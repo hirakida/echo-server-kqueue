@@ -32,11 +32,11 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    struct sockaddr_in serverAddr{};
-    serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(PORT);
-    serverAddr.sin_addr.s_addr = INADDR_ANY;
-    if (bind(listenSock, (struct sockaddr *) &serverAddr, sizeof(serverAddr)) == -1) {
+    struct sockaddr_in server{};
+    server.sin_family = AF_INET;
+    server.sin_port = htons(PORT);
+    server.sin_addr.s_addr = INADDR_ANY;
+    if (bind(listenSock, (struct sockaddr *) &server, sizeof(server)) == -1) {
         std::cerr << strerror(errno) << std::endl;
         close(listenSock);
         exit(EXIT_FAILURE);
@@ -85,7 +85,7 @@ int main() {
                 std::cerr << strerror(errno) << std::endl;
                 continue;
             }
-            std::cout << "accept[" << socket << "] " << inet_ntoa(client.sin_addr) << "::" << ntohs(client.sin_port)
+            std::cout << "[" << socket << "] " << inet_ntoa(client.sin_addr) << "::" << ntohs(client.sin_port)
                       << std::endl;
 
             // register socket
