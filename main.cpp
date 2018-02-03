@@ -110,9 +110,9 @@ int main() {
             } else {
 //                std::cout << buf << std::endl;
                 std::string response = "HTTP/1.1 200 OK\r\n"
-                                               "Content-Type: text/html;charset=UTF-8\r\n"
-                                               "Content-Length: " + std::to_string(html.size()) + "\r\n"
-                                               "\r\n" + html;
+                                       "Content-Type: text/html;charset=UTF-8\r\n"
+                                       "Content-Length: " + std::to_string(html.size()) + "\r\n"
+                                       "\r\n" + html;
                 if (write(socket, response.c_str(), response.size()) == -1) {
                     std::cerr << strerror(errno) << std::endl;
                     break;
