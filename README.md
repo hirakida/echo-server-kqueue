@@ -1,4 +1,4 @@
-# echo-server-mac
+# echo-server-kqueue
 
 ```
  mkdir build
