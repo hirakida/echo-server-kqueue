@@ -49,7 +49,7 @@ int main() {
     }
 
     int kq = kqueue();
-    if (kq < 0) {
+    if (kq == -1) {
         std::cerr << strerror(errno) << std::endl;
         close(listenSock);
         exit(EXIT_FAILURE);
